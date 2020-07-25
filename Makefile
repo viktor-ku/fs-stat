@@ -8,12 +8,15 @@ all:
 release:
 	npx standard-version --no-verify
 
-ci/build: ci/clean
+ci/build:
 	npx ncc build ci/src/cargo-toml.ts -o ci/dist/cargo-toml/ & \
 		npx ncc build ci/src/cargo-toml-lock.ts -o ci/dist/cargo-toml-lock/
 
 ci/clean:
 	rm -rf ci/dist
+
+ci/install:
+	npm ci
 
 #
 # Rust world
