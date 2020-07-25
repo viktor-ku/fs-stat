@@ -1,0 +1,11 @@
+{
+  "name": "fs-stat",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@commitlint/config-conventional": "9.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "9.1"
+  }
+}

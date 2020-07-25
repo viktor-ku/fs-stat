@@ -1,0 +1,31 @@
+name: PR / PR Name Lint
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+
+jobs:
+
+  pr-name-lint:
+    name: Lint PR Name
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+
+      - name: Install deps
+        run: npm ci --production
+
+      - name: Lint PR Name
+        uses: JulienKode/pull-request-name-linter-action@v0.1.2
+        with:
+          configuration-path: .commitlintrc.yml

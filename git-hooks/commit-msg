@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo Running git hook \`commit-msg\`...
+npx commitlint -e && echo All good 🎉

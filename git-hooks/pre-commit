@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo Running git hook \`pre-commit\`...
+cargo check >> /dev/null
