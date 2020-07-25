@@ -5,10 +5,15 @@ all:
 # CI
 #
 
-sync:
+sync/master:
 	git checkout master
 	git rebase origin/release
 	git push origin master
+
+sync/release:
+	git checkout release
+	git rebase origin/master
+	git push origin release
 
 #
 # NPM world
