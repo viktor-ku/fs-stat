@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@commitlint/config-conventional": "9.1"
-  },
-  "devDependencies": {
+    "@commitlint/config-conventional": "9.1",
+    "@iarna/toml": "2.2",
     "@commitlint/cli": "9.1",
-    "standard-version": "^8.0.2"
+    "@zeit/ncc": "0.22",
+    "standard-version": "8.0",
+    "typescript": "3.9"
   }
 }
