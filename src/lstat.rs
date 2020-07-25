@@ -68,7 +68,7 @@ mod tests {
     let link_stat = lstat("files/symlink-to-the-question.txt")?;
     let file_stat = lstat("files/the-question.txt")?;
 
-    assert_ne!(link_stat.st_ctime, file_stat.st_ctime);
+    assert_ne!(link_stat.st_blocks, file_stat.st_blocks);
 
     Ok(())
   }
