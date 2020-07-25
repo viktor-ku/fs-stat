@@ -35,6 +35,8 @@ jobs:
       tag: ${{ steps.tag.outputs.tag }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v2-beta
@@ -50,6 +52,12 @@ jobs:
       - name: Changelog
         id: changelog
         run: make release
+
+      - name: Push `release` branch
+        run: git push origin release
+
+      - name: Push new tag
+        run: git push origin $(git describe --abbrev=0)
 
       - name: Tag Output
         id: tag
