@@ -2,6 +2,15 @@ all:
 	echo hey
 
 #
+# CI
+#
+
+sync:
+	git checkout master
+	git rebase origin/release
+	git push origin master
+
+#
 # NPM world
 #
 
