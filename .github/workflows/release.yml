@@ -32,19 +32,28 @@ jobs:
     runs-on: ubuntu-20.04
     needs: checks
     outputs:
-      tag: ${{ steps.changelog.outputs.tag }}
-      skipped: ${{ steps.changelog.outputs.skipped }}
-      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
+      tag: ${{ steps.tag.outputs.tag }}
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+
+      - name: Install Deps
+        run: make ci/install
+
+      - name: Build versioning tools
+        run: make ci/build
+
       - name: Changelog
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          git-message: 'chore(release): bump to {version}'
-          preset: conventionalcommits
+        run: make release
+
+      - name: Tag Output
+        id: tag
+        run: echo "::set-output name=tag::$(git describe --abbrev=0)"
 
   publish-crate:
     name: Publish crate to crates.io
