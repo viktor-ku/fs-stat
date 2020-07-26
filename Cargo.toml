@@ -8,7 +8,6 @@ readme = "README.md"
 homepage = "https://github.com/viktor-ku/fs-stat"
 repository = "https://github.com/viktor-ku/fs-stat"
 license = "MIT"
-license-file = "LICENSE"
 keywords = [ "libc", "stat", "lstat", "fstat", "fs" ]
 categories = [ "os", "filesystem", "api-bindings" ]
 exclude = [
