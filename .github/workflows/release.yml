@@ -100,7 +100,8 @@ jobs:
       - name: Publish
         uses: actions-rs/cargo@v1
         with:
-          command: publish --no-verify --token ${{ secrets.CARGO_TOKEN }}
+          command: publish
+          args: --no-verify --token ${{ secrets.CARGO_TOKEN }}
 
   github-release:
     name: Github Release
