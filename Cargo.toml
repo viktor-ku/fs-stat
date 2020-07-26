@@ -1,6 +1,6 @@
 [package]
 name = "fs-stat"
-version = "0.1.2"
+version = "0.1.3"
 authors = [ "Viktor Kuroljov <viktor@ku.family>" ]
 edition = "2018"
 description = "libc's stat, lstat and fstat bindings to rust made accessible"
@@ -9,18 +9,8 @@ homepage = "https://github.com/viktor-ku/fs-stat"
 repository = "https://github.com/viktor-ku/fs-stat"
 license = "MIT"
 license-file = "LICENSE"
-keywords = [
-  "libc",
-  "stat",
-  "lstat",
-  "fstat",
-  "fs",
-]
-categories = [
-  "os",
-  "filesystem",
-  "api-bindings",
-]
+keywords = [ "libc", "stat", "lstat", "fstat", "fs" ]
+categories = [ "os", "filesystem", "api-bindings" ]
 exclude = [
   ".commitlintrc.yml",
   ".github/",
@@ -33,7 +23,7 @@ exclude = [
   "package.json",
   "package-lock.json",
   "tsconfig.json",
-  "rustfmt.toml",
+  "rustfmt.toml"
 ]
 
 [dependencies]
