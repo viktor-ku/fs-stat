@@ -15,6 +15,9 @@ sync/release:
 	git rebase origin/master
 	git push origin release
 
+ci/skip:
+	./ci/scripts/skip.sh
+
 #
 # NPM world
 #

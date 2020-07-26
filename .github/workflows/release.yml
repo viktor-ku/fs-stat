@@ -17,9 +17,7 @@ jobs:
 
       - name: Skip Output
         id: skip
-        run: grep -q "chore(release)" <<< $(git log -1 --pretty=format:"%s") && \
-          echo "::set-output name=skip::true" || \
-          echo "::set-output name=skip::false"
+        run: make ci/skip
 
   checks:
     name: Pre-release checks
