@@ -2,7 +2,7 @@ name: Publish Crate to crates.io
 
 on:
   release:
-    types: [published]
+    types: [created]
 
 jobs:
 
