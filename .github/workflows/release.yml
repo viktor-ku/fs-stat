@@ -57,6 +57,10 @@ jobs:
         with:
           ssh-key: ${{ secrets.SSH_KEY }}
 
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
       - name: Setup Node.js
         uses: actions/setup-node@v2-beta
         with:
@@ -70,7 +74,7 @@ jobs:
 
       - name: Changelog
         id: changelog
-        run: make release
+        run: make ci/release
 
       - name: Push `release` branch
         run: git push origin release

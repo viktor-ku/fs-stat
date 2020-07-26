@@ -22,12 +22,11 @@ ci/skip:
 # NPM world
 #
 
-release:
-	npx standard-version --no-verify
+ci/release:
+	npx standard-version --no-verify --commit-all
 
 ci/build:
-	npx ncc build ci/src/cargo-toml.ts -o ci/dist/cargo-toml/ & \
-		npx ncc build ci/src/cargo-toml-lock.ts -o ci/dist/cargo-toml-lock/
+	npx ncc build ci/src/cargo-toml.ts -o ci/dist/cargo-toml/
 
 ci/clean:
 	rm -rf ci/dist

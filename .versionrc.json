@@ -5,10 +5,6 @@
       "updater": "ci/dist/cargo-toml/index.js"
     },
     {
-      "filename": "Cargo.lock",
-      "updater": "ci/dist/cargo-toml-lock/index.js"
-    },
-    {
       "filename": "package.json",
       "type": "json"
     },
@@ -16,5 +12,9 @@
       "filename": "package-lock.json",
       "type": "json"
     }
-  ]
+  ],
+  "scripts": {
+    "postbump": "cargo generate-lockfile",
+    "precommit": "git add Cargo.lock"
+  }
 }
