@@ -99,6 +99,25 @@ jobs:
           tag_name: ${{ needs.changelog.outputs.tag }}
           release_name: ${{ needs.changelog.outputs.tag }}
 
+  publish-crate:
+    name: Publish crate to crates.io
+    runs-on: ubuntu-20.04
+    needs: changelog
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ needs.changelog.outputs.tag }}
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Publish
+        uses: actions-rs/cargo@v1
+        with:
+          command: publish
+          args: --no-verify --token ${{ secrets.CARGO_TOKEN }}
+
   sync:
     name: Sync master & release
     runs-on: ubuntu-latest
