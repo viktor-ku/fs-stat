@@ -7,9 +7,25 @@ on:
 
 jobs:
 
+  skip:
+    name: Maybe skip?
+    runs-on: ubuntu-20.04
+    outputs:
+      skip: ${{ steps.skip.outputs.skip }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Skip Output
+        id: skip
+        run: grep -q "chore(release)" <<< $(git log -1 --pretty=format:"%s") && \
+          echo "::set-output name=skip::true" || \
+          echo "::set-output name=skip::false"
+
   checks:
     name: Pre-release checks
     runs-on: ubuntu-20.04
+    needs: skip
+    if: ${{ needs.skip.outputs.skip == 'false' }}
     steps:
       - uses: actions/checkout@v2
 
