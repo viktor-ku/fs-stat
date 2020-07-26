@@ -86,21 +86,21 @@ jobs:
         id: tag
         run: echo "::set-output name=tag::$(git describe --abbrev=0)"
 
-  # publish-crate:
-  #   name: Publish crate to crates.io
-  #   runs-on: ubuntu-20.04
-  #   needs: changelog
-  #   steps:
-  #     - uses: actions/checkout@v2
+  publish-crate:
+    name: Publish crate to crates.io
+    runs-on: ubuntu-20.04
+    needs: changelog
+    steps:
+      - uses: actions/checkout@v2
 
-  #     - uses: actions-rs/toolchain@v1
-  #       with:
-  #         toolchain: stable
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
-  #     - name: Publish
-  #       uses: actions-rs/cargo@v1
-  #       with:
-  #         command: publish --no-verify --token ${{ secrets.CARGO_TOKEN }}
+      - name: Publish
+        uses: actions-rs/cargo@v1
+        with:
+          command: publish --no-verify --token ${{ secrets.CARGO_TOKEN }}
 
   github-release:
     name: Github Release
