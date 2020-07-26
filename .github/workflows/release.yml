@@ -123,8 +123,5 @@ jobs:
           fetch-depth: 0
           ssh-key: ${{ secrets.SSH_KEY }}
 
-      - name: Rebase
-        run: git rebase origin/release
-
-      - name: Push
-        run: git push origin master
+      - name: Sync
+        run: make sync/master
