@@ -1,5 +1,9 @@
 # fs-stat
 
+Crate has been yanked because there are better alternatives:
+1. [doc.rust-lang.org/stable/std/os/unix/fs/trait.MetadataExt.html](https://doc.rust-lang.org/stable/std/os/unix/fs/trait.MetadataExt.html)
+2. [nix](https://crates.io/crates/nix)
+
 [libc](https://github.com/rust-lang/libc) `stat`, `lstat` and `fstat` bindings to rust made accessible
 
 ## Usage
